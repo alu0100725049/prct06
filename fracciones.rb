@@ -14,11 +14,7 @@ class Fracciones
   end
   
   def comparar_igualdad(x)
-    if ((self.num == x.num) && (self.den == x.den))
-      puts 'Las fracciones son iguales'
-    else
-      puts 'Las fracciones son distintas'
-    end
+    ((self.num == x.num) && (self.den == x.den))
   end
   
   def absoluto
@@ -31,6 +27,26 @@ class Fracciones
   
   def opuesto
     Fracciones.new(-@num, -@den)
+  end
+  
+  def menor (x)
+    ((self.num * x.den) < (self.den * x.num))
+  end
+  
+  def mayor (x)
+    ((self.num * x.den) > (self.den * x.num))
+  end
+  
+  def menor_igual (x)
+    ((self.num * x.den) <= (self.den * x.num))
+  end
+  
+  def mayor_igual (x)
+    ((self.num * x.den) >= (self.den * x.num))
+  end
+  
+  def resto (x)
+    return ((self.num * x.den) % (self.den * x.num))
   end
   
 end
@@ -52,18 +68,6 @@ end
   
 #-------------------------------------------------------------------------------------------------------------------------
 
-num = get_num
-den = get_den
-a = Fracciones.new(num, den)
-#a.mostrar_fraccion
-
-#-------------------------------------------------------------------------------------------------------------------------
-
 #num = get_num
 #den = get_den
-#b = Fracciones.new(num, den)
-#b.mostrar_fraccion
-
-#-------------------------------------------------------------------------------------------------------------------------
-
-#a.comparar_igualdad(b)
+#a = Fracciones.new(num, den)
