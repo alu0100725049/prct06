@@ -5,23 +5,24 @@ class Fracciones
   attr_accessor :num, :den
   
   def initialize (num, den)
+    raise TypeError, "El denominador no puede ser 0" unless den != 0
     @num = num/mcd(num, den)
     @den = den/mcd(num,den)
   end
   
-  def mostrar_fraccion
-    puts "La fraccion es: #{@num}/#{@den}"
+  def to_s
+    "#{@num}/#{@den}"
   end
   
-  def flotante
+  def to_f
     @num.to_f / @den.to_f
   end
   
-  def comparar_igualdad(x)
+  def ==(x)
     ((self.num == x.num) && (self.den == x.den))
   end
   
-  def absoluto
+  def abs
     Fracciones.new(@num.abs, @den.abs)
   end
   
@@ -33,23 +34,23 @@ class Fracciones
     Fracciones.new(-@num, -@den)
   end
   
-  def menor (x)
+  def < (x)
     ((self.num * x.den) < (self.den * x.num))
   end
   
-  def mayor (x)
+  def > (x)
     ((self.num * x.den) > (self.den * x.num))
   end
   
-  def menor_igual (x)
+  def <= (x)
     ((self.num * x.den) <= (self.den * x.num))
   end
   
-  def mayor_igual (x)
+  def >= (x)
     ((self.num * x.den) >= (self.den * x.num))
   end
   
-  def resto (x)
+  def % (x)
     return ((self.num * x.den) % (self.den * x.num))
   end
 
@@ -65,21 +66,21 @@ class Fracciones
     (u * v)/mcd(u, v)
   end
   
-  def suma(x)
+  def + (x)
     m = mcm(self.den, x.den)
     Fracciones.new((m/self.den * self.num) + (m/x.den * x.num),m)
   end
   
-  def resta(x)
+  def - (x)
     m = mcm(self.den, x.den)
     Fracciones.new((m/self.den * self.num) - (m/x.den * x.num),m)
   end
   
-  def producto(x)
+  def * (x)
     Fracciones.new(self.num * x.num, self.den * x.den)
   end
   
-  def division(x)
+  def / (x)
     Fraccion.new(self.num * x.den, self.den * x.num)
   end
   
