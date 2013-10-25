@@ -105,3 +105,4 @@ end
 num = get_num
 den = get_den
 a = Fracciones.new(num, den)
+a.mostrar_fraccion

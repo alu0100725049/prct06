@@ -84,25 +84,3 @@ class Fracciones
   end
   
 end
-
-#-------------------------------------------------------------------------------------------------------------------------
-
-  def get_num
-    puts 'Introduce un numerador: '
-    numerador = gets.to_i
-    return numerador
-  end
-  
-  def get_den
-    puts 'Introduce un denominador: '
-    denominador = gets.to_i
-    raise TypeError, "0 no puede ser denominador" unless denominador != 0
-    return denominador
-  end
-  
-#-------------------------------------------------------------------------------------------------------------------------
-
-num = get_num
-den = get_den
-a = Fracciones.new(num, den)
-a.mostrar_fraccion
