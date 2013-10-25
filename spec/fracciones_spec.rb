@@ -44,4 +44,64 @@ describe Fracciones do
     @x.new(1, 2).should_not == @x.new(1, 3)
   end
   
+  it "Se debe calcular el valor absoluto de una fraccion con el metodo abs" do
+    @x.new(-1, 2).abs.should == @x.new(1, 2)
+    @x.new(-1, 2).abs.should_not == @x.new(-1, 2)
+  end
+  
+  it "Se debe calcular el reciproco de una fraccion con el metodo reciprocal" do
+    @x.new(-1, 2).reciproco.should == @x.new(2, -1)
+    @x.new(-1, 2).reciproco.should_not == @x.new(-1, 2)
+  end
+  
+  it "Se debe calcular el opuesto de una fraccion con -" do
+    (-@x.new(1, 2)).should == @x.new(-1, 2)
+    (-@x.new(1, 2)).should_not == @x.new(1, 2)
+  end
+  
+  it "Se debe sumar dos fracciones con + y dar el resultado de forma reducida" do
+    (@x.new(1, 2) + @x.new(1, 2)).should == @x.new(1, 1)
+    (@x.new(1, 2) + @x.new(1, 2)).should_not == @x.new(2, 3)
+  end
+  
+  it "Se debe restar dos fracciones con - y dar el resultado de forma reducida" do
+    (@x.new(1, 2) - @x.new(1, 4)).should == @x.new(1, 4)
+    (@x.new(1, 2) - @x.new(1, -3)).should_not == @x.new(1, 2)
+  end
+  
+  it "Se debe multiplicar dos fracciones con * y dar el resultado de forma reducida" do
+    (@x.new(1, 3) * @x.new(-2, 3)).should == @x.new(-2, 9)
+    (@x.new(1, 2) * @x.new(1, 3)).should_not == @x.new(6, 1)
+  end
+    
+  it "Se debe dividir dos fracciones con / y dar el resultado de forma reducida" do
+    (@x.new(1, 2) / @x.new(-1, 6)).should == @x.new(3, -1)
+    (@x.new(1, 2) / @x.new(1, -3)).should_not == @x.new(3, 3)
+  end
+  
+  it "Se debe calcular el resto dos fracciones con % y dar el resultado de forma reducida" do
+    (@x.new(3, 5) % @x.new(4, 7)).should == 1
+    (@x.new(1, 2) % @x.new(2, 5)).should_not == 0
+  end
+  
+  it "Se debe de poder comprobar si una fracion es menor que otra" do
+    (@x.new(1, 2) < @x.new(1, 1)).should be_true
+    (@x.new(1, 1) < @x.new(-1, 2)).should be_false
+  end
+  
+  it "Se debe de poder comprobar si una fracion es mayor que otra" do
+    (@x.new(1, 1) > @x.new(1, 2)).should be_true
+    (@x.new(-1, 2) > @x.new(1, 1)).should be_false
+  end
+  
+  it "Se debe de poder comprobar si una fracion es menor o igual que otra" do
+    (@x.new(1, 2) <= @x.new(2, 4)).should be_true
+    (@x.new(1, 1) <= @x.new(1, 2)).should be_false
+  end
+    
+  it "Se debe de poder comprobar si una fracion es mayor o igual que otra" do
+    (@x.new(1, 2) >= @x.new(2, 4)).should be_true
+    (@x.new(1, 2) >= @x.new(1, 1)).should be_false
+  end
+  
 end

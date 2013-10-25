@@ -30,8 +30,8 @@ class Fracciones
     Fracciones.new(@den, @num)
   end
   
-  def opuesto
-    Fracciones.new(-@num, -@den)
+  def -@
+    Fracciones.new(-@num, @den)
   end
   
   def < (x)
@@ -80,7 +80,7 @@ class Fracciones
     Fracciones.new(self.num * x.num, self.den * x.den)
   end
   
-  def / (x)
+  def div (x)
     Fraccion.new(self.num * x.den, self.den * x.num)
   end
   

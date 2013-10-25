@@ -1,24 +1,19 @@
 Errores que han aparecido en el spec
 
+.............F.....
+
 Failures:
 
-  1) Fracciones Se debe mostar por la consola la fraccion de la forma: a/b, donde a es el numerador y b el denominador
-     Failure/Error: @x.new(1, 2).mostrar_fraccion.should == "La fraccion es: 1/2"
-       expected: "La fraccion es: 1/2"
-            got: nil (using ==)
-     # ./fracciones_spec.rb:35
-
-  2) Fracciones Se debe comparar si dos fracciones son iguales con ==
-     Failure/Error: @x.new(1, 2).should comparar_igualdad @x.new(2, 4)
+  1) Fracciones Se debe dividir dos fracciones con / y dar el resultado de forma reducida
+     Failure/Error: (@x.new(1, 2) / @x.new(-1, 6)).should == @x.new(3, -1)
      NoMethodError:
-       undefined method `comparar_igualdad' for #<RSpec::Core::ExampleGroup::Nested_1:0xb71dcf24>
-     # ./fracciones_spec.rb:43
+       undefined method `/' for #<Fracciones:0xb71892ac @num=1, @den=2>
+     # ./fracciones_spec.rb:78
 
-Finished in 0.00284 seconds
-7 examples, 2 failures
+Finished in 0.00723 seconds
+19 examples, 1 failure
 
 Failed examples:
 
-rspec ./fracciones_spec.rb:34 # Fracciones Se debe mostar por la consola la fraccion de la forma: a/b, donde a es el numerador y b el denominador
-rspec ./fracciones_spec.rb:42 # Fracciones Se debe comparar si dos fracciones son iguales con ==
+rspec ./fracciones_spec.rb:77 # Fracciones Se debe dividir dos fracciones con / y dar el resultado de forma reducida
 
